@@ -4,11 +4,9 @@ CREATE TABLE products (
     name VARCHAR(255) NOT NULL
     
 );
-INSERT INTO products (code, name, )
+INSERT INTO products (code, name )
 VALUES
-('PARA500', 'Paracétamol 500mg' ),
-('AMOX500', 'Amoxicilline 500mg' ),
-('VITC1000', 'Vitamine C 1000mg');
+('PA800', 'Paracétamol 500mg' );
 CREATE TABLE stock_batches (
     id INT AUTO_INCREMENT PRIMARY KEY,
 
