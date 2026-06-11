@@ -131,7 +131,7 @@ tr:nth-child(even) {
        font-weight: bold;
 }
 
-/* 🔴 URGENT (30 days) */
+
 .red {
     /* background: #fee2e2; */
     color:red;
@@ -152,11 +152,8 @@ tr:nth-child(even) {
 <!-- SIDEBAR -->
 <div class="sidebar">
     <h2>Pharma FEFO</h2>
-    <a href="#">📊 Dashboard</a>
-    <a href="#">📦 Stock</a>
-    <a href="#">➕ Ajouter produit</a>
-    <a href="#">⚠️ Alertes</a>
-    <a href="#">🚪 Logout</a>
+    <a href="index.php?action=alerts"> Alertes</a>
+    <a href="index.php?action=logout"> Logout</a>
 </div>
 
 <!-- MAIN -->
@@ -164,28 +161,6 @@ tr:nth-child(even) {
 
     <h1>Dashboard Préparateur</h1>
 
-    <!-- CARDS -->
-    <div class="cards">
-        <div class="card">
-            <h3>Produits</h3>
-            <p>120</p>
-        </div>
-
-        <div class="card">
-            <h3>Lots</h3>
-            <p>340</p>
-        </div>
-
-        <div class="card">
-            <h3>Expiring</h3>
-            <p>15</p>
-        </div>
-
-        <div class="card">
-            <h3>Stock faible</h3>
-            <p>8</p>
-        </div>
-    </div>
 
     <!-- FORM ADD PRODUCT -->
     <div class="form-box">
@@ -198,7 +173,7 @@ tr:nth-child(even) {
     <option value="2">Amoxicilline</option>
     <option value="3">Vitamine C</option>
 </select>
-    <input type="text" name="lot_number" placeholder="Lot number">
+    <input type="text" name="lot_number" placeholder="Lot number" required>
     <input type="date" name="expiry_date">
     <input type="number" name="quantity" placeholder="Quantity">
     <input type="text" name="status" placeholder="status de produit">

@@ -16,5 +16,14 @@ class PreparateurController
     {
         $stock = $this->stockRepo->getStock();
 
-require dirname(__DIR__, 2) . "/templates/prepa/dashboard.php";    }
+        require dirname(__DIR__, 2) . "/templates/prepa/dashboard.php";
+    }
+
+    public function alerts()
+    {
+        // ❌ ما نعاودوش نصايبو repo هنا
+        $expiring = $this->stockRepo->getExpiringNextMonth();
+
+        require   "../templates/alerts.php";
+    }
 }

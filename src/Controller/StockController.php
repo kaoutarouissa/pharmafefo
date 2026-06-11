@@ -13,8 +13,8 @@ class StockController
     public function index()
     {
         $stock = $this->repo->getStock();
-var_dump($stock);
-exit;
+// var_dump($stock);
+// exit;
         include __DIR__ . "/../templates/prepa/dashboard.php";
     }
 
@@ -22,7 +22,9 @@ exit;
    public function store()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+//    if (empty(trim($_POST['lot_number']))) {
+//             die('Le numéro de lot est obligatoire');
+//         }
         $this->repo->addStock(
             $_POST['product_id'],
             $_POST['lot_number'],

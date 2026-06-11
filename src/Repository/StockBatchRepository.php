@@ -34,4 +34,15 @@ class StockRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+public function getExpiringNextMonth()
+{
+    $sql = "SELECT sb.*, p.name
+            FROM stock_batches sb
+            JOIN products p ON p.id = sb.product_id
+            WHERE sb.quantity > 0
+            AND sb.expiry_date BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 30 DAY)
+            ORDER BY sb.expiry_date ASC";
+
+    return $this->pdo->query($sql)->fetchAll();
+}
 }

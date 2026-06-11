@@ -23,7 +23,10 @@ class AuthController
 
             if ($user && $password === $user['password']) {
 
-                $_SESSION['user'] = $user;
+                $_SESSION['user'] = [
+    'id' => $user['id'],
+    'role' => $user['role']
+];;
 
                 if ($user['role'] === 'admin') {
                     header('Location: index.php?action=admin_dashboard');
