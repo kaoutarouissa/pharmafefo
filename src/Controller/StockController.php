@@ -42,39 +42,40 @@ require_once '../src/Repository/StockBatchRepository.php';
 
 }
 
-class DashboardController{
-    public function index()
-    {
-        $repo = new StockBatchRepository();
+// class DashboardController{
+//     public function index()
+//     {
+//         $repo = new StockBatchRepository();
 
-        $batches = $repo->findAll();
 
-        foreach ($batches as &$batch) {
+//         $batches = $repo->findAll();
 
-            $today = new DateTime();
-            $expiry = new DateTime($batch['expiry_date']);
+//         foreach ($batches as &$batch) {
 
-            if ($expiry < $today) {
+//             $today = new DateTime();
+//             $expiry = new DateTime($batch['expiry_date']);
 
-                $batch['status'] = 'EXPIRED';
+//             if ($expiry < $today) {
 
-            } else {
+//                 $batch['status'] = 'EXPIRED';
 
-                $days = $today->diff($expiry)->days;
+//             } else {
 
-                if ($days <= 30) {
-                    $batch['status'] = 'EXPIRING_30_DAYS';
-                } elseif ($days <= 90) {
-                    $batch['status'] = 'EXPIRING_90_DAYS';
-                } else {
-                    $batch['status'] = 'ACTIVE';
-                }
-            }
-        }
+//                 $days = $today->diff($expiry)->days;
 
-        require __DIR__ . '/../../templates/dashboard/index.php';
-    }
-}
+//                 if ($days <= 30) {
+//                     $batch['status'] = 'EXPIRING_30_DAYS';
+//                 } elseif ($days <= 90) {
+//                     $batch['status'] = 'EXPIRING_90_DAYS';
+//                 } else {
+//                     $batch['status'] = 'ACTIVE';
+//                 }
+//             }
+//         }
+
+//         require __DIR__ . '/../../templates/dashboard/index.php';
+//     }
+// }
 
     // ➖ Dispatch FEFO
     // public function dispatch()

@@ -22,7 +22,7 @@ class PreparateurController
     public function alerts()
     {
         // ❌ ما نعاودوش نصايبو repo هنا
-        $expiring = $this->stockRepo->getExpiringNextMonth();
+        $expiring = $this->stockRepo->getExpiredAndExpiring();
 
         require   "../templates/alerts.php";
     }
