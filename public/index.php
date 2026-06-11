@@ -2,13 +2,23 @@
 
 session_start();
 
+
+require_once __DIR__ . '/../config/env.php';
+loadEnv(__DIR__ . '/../.env');
+
+
+
+require_once __DIR__ . '/../config/database.php';
+$pdo = require __DIR__ . '/../config/database.php';
 require_once '../src/Controller/AuthController.php';
 require_once '../src/Controller/AdminControler.php';
 require_once '../src/Controller/pharmaController.php';
 require_once '../src/Controller/PrepaController.php';
 require_once '../src/Controller/StockController.php';
-require_once '../src/Repository/StockBatchRepository.php';
-$pdo = require '../config/database.php';
+// require_once '../src/Repository/StockBatchRepository.php';
+require_once __DIR__ . '/../src/Repository/StockBatchRepository.php';
+
+
 $authController = new AuthController($pdo);
 $adminController = new AdminController();
 $pharmacienController = new PharmacienController();
