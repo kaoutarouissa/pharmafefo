@@ -10,7 +10,8 @@ class DashboardController
 
         $batches = $repo->findAll();
 
-   
+     var_dump($batches);
+    die();
         // require 'templates/dashboard/index.php';
 require __DIR__ . '/../../templates/dashboard/index.php';
    }

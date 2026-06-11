@@ -1,3 +1,4 @@
+-- Active: 1778143412600@@127.0.0.1@3306@pharma_fefo
 CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code VARCHAR(50) UNIQUE NOT NULL,
@@ -45,6 +46,10 @@ CREATE TABLE movement_history (
         REFERENCES stock_batches(id)
         ON DELETE CASCADE
 );
+INSERT INTO products (code, name)
+VALUES
+('AM500', 'Amoxicilline 500mg'),
+('VC1000', 'Vitamine C 1000mg');
 INSERT INTO stock_batches
 (product_id, lot_number, quantity, expiry_date)
 VALUES
@@ -55,6 +60,13 @@ VALUES
 (2,'LOT-AMOX-001',80,'2025-08-20'),
 
 (3,'LOT-VITC-001',120,'2027-01-10');
+ALTER TABLE stock_batches
+ADD status ENUM(
+'ACTIVE',
+'EXPIRING_90_DAYS',
+'EXPIRING_30_DAYS',
+'EXPIRED'
+) DEFAULT 'ACTIVE';
 CREATE DATABASE pharma_fefo;
 USE pharma_fefo;
 CREATE TABLE users (

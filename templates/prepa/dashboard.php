@@ -113,11 +113,36 @@ tr:nth-child(even) {
     padding: 5px 10px;
     border-radius: 8px;
     font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
 }
 
-.green { background: #dcfce7; }
-.orange { background: #ffedd5; }
-.red { background: #fee2e2; }
+
+.green {
+    /* background: #dcfce7; */
+    color:green;
+       font-weight: bold;
+}
+
+/* 🟠 WARNING (90 days) */
+.orange {
+    /* background: #ffedd5; */
+    color: orange;
+       font-weight: bold;
+}
+
+/* 🔴 URGENT (30 days) */
+.red {
+    /* background: #fee2e2; */
+    color:red;
+       font-weight: bold;
+}
+
+.yellow {
+    /* background: #fef9c3; */
+    color:yellow;
+       font-weight: bold;
+}
 
 </style>
 </head>
@@ -176,6 +201,7 @@ tr:nth-child(even) {
     <input type="text" name="lot_number" placeholder="Lot number">
     <input type="date" name="expiry_date">
     <input type="number" name="quantity" placeholder="Quantity">
+    <input type="text" name="status" placeholder="status de produit">
 
     <button>Ajouter</button>
 </form>
@@ -194,26 +220,71 @@ tr:nth-child(even) {
         </tr>
 
         
-<?php if (!empty($stock) && is_array($stock)): ?>
+   <?php if (!empty($stock) && is_array($stock)): ?>
 
-<?php foreach ($stock as $s): ?>
-    <tr>
-        <td><?= $s['name'] ?></td>
-        
-        <td><?= $s['lot_number'] ?></td>
-        <td><?= $s['expiry_date'] ?></td>
-        <td><?= $s['quantity'] ?></td>
-    </tr>
-<?php endforeach; ?>
+        <?php foreach ($stock as $s): ?>
+
+            <?php
+                $today = new DateTime();
+                $expiry = new DateTime($s['expiry_date']);
+
+                if ($expiry < $today) {
+                    $status = 'EXPIRED';
+                } else {
+
+                    $days = $today->diff($expiry)->days;
+
+                    if ($days <= 30) {
+                        $status = 'EXPIRING_30_DAYS';
+                    } elseif ($days <= 90) {
+                        $status = 'EXPIRING_90_DAYS';
+                    } else {
+                        $status = 'ACTIVE';
+                    }
+                }
+            ?>
+
+            <tr>
+                <td><?= htmlspecialchars($s['name']) ?></td>
+                <td><?= htmlspecialchars($s['lot_number']) ?></td>
+                <td><?= htmlspecialchars($s['expiry_date']) ?></td>
+                <td><?= htmlspecialchars($s['quantity']) ?></td>
+
+                <td>
+
+<?php if ($status === 'ACTIVE'): ?>
+
+    <span class="badge green">ACTIVE</span>
+
+<?php elseif ($status === 'EXPIRING_90_DAYS'): ?>
+
+    <span class="yellow">Proche de péremption</span>
+
+<?php elseif ($status === 'EXPIRING_30_DAYS'): ?>
+
+    <span class="orange">Très proche</span>
 
 <?php else: ?>
-    <tr>
-        <td colspan="4">No stock found </td>
-        <td><?php var_dump($stock);
-exit; ?></td>
-    </tr>
+
+    <span class="red">EXPIRED</span>
+
 <?php endif; ?>
-        
+
+</td>
+
+            </tr>
+
+        <?php endforeach; ?>
+
+    <?php else: ?>
+
+        <tr>
+            <td colspan="5">
+                Aucun stock trouvé
+            </td>
+        </tr>
+
+    <?php endif; ?>
 
        
 

@@ -12,14 +12,14 @@ class StockRepository
         $this->pdo = $pdo;
     }
 
-    public function addStock($productId, $lot, $qty, $expiry)
+    public function addStock($productId, $lot, $qty, $expiry,$status)
     {
         $stmt = $this->pdo->prepare("
-            INSERT INTO stock_batches (product_id, lot_number, quantity, expiry_date)
-            VALUES (?, ?, ?, ?)
+            INSERT INTO stock_batches (product_id, lot_number, quantity, expiry_date, status)
+            VALUES (?, ?, ?, ?, ?)
         ");
 
-        return $stmt->execute([$productId, $lot, $qty, $expiry]);
+        return $stmt->execute([$productId, $lot, $qty, $expiry, $status]);
     }
 
     public function getStock()
@@ -33,4 +33,5 @@ class StockRepository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 }
