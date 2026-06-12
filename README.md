@@ -15,7 +15,9 @@ User authentication (Admin / Pharmacist / Stock Manager)
 
 # Tech Stack
 PHP ( MVC structure)
+
 MySQL
+
 HTML / CSS Tailwind
 
 
