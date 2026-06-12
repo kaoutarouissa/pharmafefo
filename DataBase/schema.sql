@@ -81,3 +81,14 @@ VALUES
 ('Admin', 'admin@gmail.com', '1234', 'admin'),
 ('Pharmacien', 'pharma@gmail.com', '1234', 'pharmacien'),
 ('Preparateur', 'prepa@gmail.com', '1234', 'preparateur');
+INSERT INTO products (code, name) VALUES
+('DO500', 'Doliprane 500mg'),
+('CL625', 'Clamoxyl 625mg'),
+('EF200', 'Efferalgan 200mg'),
+('SP80', 'Spasfon 80mg'),
+('SM500', 'Smecta 500mg'),
+('MG20', 'Mopral 20mg'),
+('DG10', 'Doligel 10mg'),
+('FL150', 'Fluconazole 150mg'),
+('LV500', 'Levothyrox 50µg'),
+('CR20', 'Coversyl 20mg');

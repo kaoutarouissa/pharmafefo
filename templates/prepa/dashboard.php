@@ -168,15 +168,19 @@ tr:nth-child(even) {
 
       <form method="POST" action="index.php?action=store_stock">
 
-    <select name="product_id">
-    <option value="1">Paracétamol</option>
-    <option value="2">Amoxicilline</option>
-    <option value="3">Vitamine C</option>
+ <select name="product_id" required>
+    <option value="">-- Choisir un produit --</option>
+
+    <?php foreach ($products as $product): ?>
+        <option value="<?= $product['id'] ?>">
+            <?= htmlspecialchars($product['name']) ?>
+        </option>
+    <?php endforeach; ?>
 </select>
+
     <input type="text" name="lot_number" placeholder="Lot number" required>
-    <input type="date" name="expiry_date">
-    <input type="number" name="quantity" placeholder="Quantity">
-    <input type="text" name="status" placeholder="status de produit">
+    <input type="date" name="expiry_date" required>
+    <input type="number" name="quantity" min="1" required placeholder="Quantity">
 
     <button>Ajouter</button>
 </form>

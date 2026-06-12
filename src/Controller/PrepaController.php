@@ -15,6 +15,7 @@ class PreparateurController
     public function dashboard()
     {
         $stock = $this->stockRepo->getStock();
+    $products = $this->stockRepo->getAllProducts();
 
         require dirname(__DIR__, 2) . "/templates/prepa/dashboard.php";
     }

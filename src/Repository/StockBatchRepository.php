@@ -33,6 +33,11 @@ class StockRepository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+public function getAllProducts(): array
+{
+    $stmt = $this->pdo->query("SELECT id, name FROM products");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 public function getExpiredAndExpiring()
 {

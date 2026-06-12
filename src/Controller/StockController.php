@@ -12,8 +12,12 @@ class StockController
     // 📊 Dashboard stock
     public function index()
     {
+        //  die('INDEX WORKING');
         $stock = $this->repo->getStock();
+        //  $products = $this->repo->getAllProducts();
 // var_dump($stock);
+// var_dump($products);
+exit;
 // exit;
         include __DIR__ . "/../templates/prepa/dashboard.php";
     }
@@ -22,9 +26,12 @@ class StockController
    public function store()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//    if (empty(trim($_POST['lot_number']))) {
-//             die('Le numéro de lot est obligatoire');
-//         }
+// $quantity = (int)$_POST['quantity'];
+
+// if ($quantity < 1) {
+//     $msg='La quantité doit être supérieure à 0';
+// }
+
         $this->repo->addStock(
             $_POST['product_id'],
             $_POST['lot_number'],
