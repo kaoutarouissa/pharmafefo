@@ -70,7 +70,7 @@ http://localhost/PharmaFEFO/public/index.php
 ## les comptes pour tester
 
 | Rôle        | Email                          | Mot de passe |
-|--------    -|--------------------------------|--------------|
+|-------------|--------------------------------|--------------|
 | Admin       | admin@gmail.com                | 1234         |
 | preparateur | prepa@gmail.com                | 1234         |
 | pharmacien  | pharma@gmail.com               | 1234         |
