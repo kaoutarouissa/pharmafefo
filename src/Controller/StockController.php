@@ -9,14 +9,12 @@ class StockController
         $this->repo = $repo;
     }
 
-    // 📊 Dashboard stock
+   
     public function index()
     {
-        //  die('INDEX WORKING');
+       
         $stock = $this->repo->getStock();
-        //  $products = $this->repo->getAllProducts();
-// var_dump($stock);
-// var_dump($products);
+
 exit;
 // exit;
         include __DIR__ . "/../templates/prepa/dashboard.php";
@@ -26,11 +24,6 @@ exit;
    public function store()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// $quantity = (int)$_POST['quantity'];
-
-// if ($quantity < 1) {
-//     $msg='La quantité doit être supérieure à 0';
-// }
 
         $this->repo->addStock(
             $_POST['product_id'],
@@ -48,53 +41,3 @@ require_once '../src/Repository/StockBatchRepository.php';
 }
 
 }
-
-// class DashboardController{
-//     public function index()
-//     {
-//         $repo = new StockBatchRepository();
-
-
-//         $batches = $repo->findAll();
-
-//         foreach ($batches as &$batch) {
-
-//             $today = new DateTime();
-//             $expiry = new DateTime($batch['expiry_date']);
-
-//             if ($expiry < $today) {
-
-//                 $batch['status'] = 'EXPIRED';
-
-//             } else {
-
-//                 $days = $today->diff($expiry)->days;
-
-//                 if ($days <= 30) {
-//                     $batch['status'] = 'EXPIRING_30_DAYS';
-//                 } elseif ($days <= 90) {
-//                     $batch['status'] = 'EXPIRING_90_DAYS';
-//                 } else {
-//                     $batch['status'] = 'ACTIVE';
-//                 }
-//             }
-//         }
-
-//         require __DIR__ . '/../../templates/dashboard/index.php';
-//     }
-// }
-
-    // ➖ Dispatch FEFO
-    // public function dispatch()
-    // {
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    //         $productId = $_POST['product_id'];
-    //         $qty = $_POST['qty'];
-
-    //         $this->repo->removeStockFEFO($productId, $qty);
-
-    //        header("Location: index.php?action=preparateur_dashboard");
-    //         exit;
-    //     }
-    // }

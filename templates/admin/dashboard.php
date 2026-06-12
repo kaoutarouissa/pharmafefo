@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedFlow - Administration</title>
+    <title>PharmaFEFO - Administration</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-100">
@@ -17,7 +17,7 @@
     <aside class="w-72 bg-slate-900 text-white">
 
         <div class="p-6 border-b border-slate-700">
-            <h1 class="text-3xl font-bold">🏥 MedFlow</h1>
+            <h1 class="text-3xl font-bold">PharmaFEFO</h1>
             <p class="text-slate-400 mt-1">Espace Administrateur</p>
         </div>
 
