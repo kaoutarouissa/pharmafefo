@@ -1,25 +1,27 @@
-## Pharma FEFO Stock Management System
- # Description
+# Système de Gestion de Stock Pharma FEFO
 
-This project is a pharmacy stock management system based on the FEFO (First Expired, First Out) principle.
-It helps manage products, batches, expiry dates, stock entries, and dispensing operations efficiently.
+Ce projet est un système de gestion de stock pharmaceutique basé sur le principe FEFO (First Expired, First Out).
+Il permet de gérer efficacement les produits, les lots, les dates de péremption, les entrées de stock et les opérations de dispensation.
 
-# Features
-Manage products and batches
-Track expiry dates automatically
-FEFO stock  (oldest expiry first)
-Stock entry (reception of products)
-Stock  (sales / dispensing)
-Alerts for low stock and near expiry
-User authentication (Admin / Pharmacist / Stock Manager)
+## Fonctionnalités
 
-# Tech Stack
-PHP ( MVC structure)
+Gestion des produits et des lots
 
-MySQL
+Suivi automatique des dates de péremption
 
-HTML / CSS Tailwind
+Gestion du stock selon FEFO (les produits les plus proches de la péremption sont utilisés en premier)
+Entrée de stock (réception des produits)
+Sortie de stock (vente / dispensation)
+Alertes pour stock faible et produits proches de la péremption
+Authentification des utilisateurs (Admin / Pharmacien / Gestionnaire de stock)ager)
 
+## Tech Stack
+
+- **PHP 8** (Programmation Orientée Objet)
+- **MySQL** (Base de données)
+- **PDO** (Connexion sécurisée)
+- **Tailwind CSS** (Interface utilisateur via CDN)
+- **PHP Sessions** (Authentification)
 
 
 ## structure du projet 
@@ -41,8 +43,36 @@ HTML / CSS Tailwind
 
 
 ## instalation
-git clone 
-## databese 
-## run projet
-http://localhost/pharmafefo/
+
+### 1. Prérequis
+
+- PHP 8.0
+- MySQL 5.7
+- Serveur web (Apache/Nginx)
+
+### 2. Base de données
+
+### 3. Configuration
+
+Modifiez le fichier `.env` à la racine du projet :
+
+```env
+DB_HOST=localhost
+DB_NAME=pharma_fefo
+DB_USER=root
+DB_PASS=
+```
+
+### 4. "git clone https://github.com/votre-utilisateur/pharmafefo.git"
+
+### 5. run projet
+
+http://localhost/PharmaFEFO/public/index.php
+
 ## les comptes pour tester
+
+| Rôle        | Email                          | Mot de passe |
+|--------    -|--------------------------------|--------------|
+| Admin       | admin@gmail.com                | 1234         |
+| preparateur | prepa@gmail.com                | 1234         |
+| pharmacien  | pharma@gmail.com               | 1234         |
