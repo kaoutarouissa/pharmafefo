@@ -5,15 +5,13 @@ Il permet de gérer efficacement les produits, les lots, les dates de péremptio
 
 ## Fonctionnalités
 
-Gestion des produits et des lots
-
-Suivi automatique des dates de péremption
-
-Gestion du stock selon FEFO (les produits les plus proches de la péremption sont utilisés en premier)
-Entrée de stock (réception des produits)
-Sortie de stock (vente / dispensation)
-Alertes pour stock faible et produits proches de la péremption
-Authentification des utilisateurs (Admin / Pharmacien / Gestionnaire de stock)ager)
+- Gestion des produits et des lots
+- Suivi automatique des dates de péremption
+- Gestion du stock selon FEFO (les produits les plus proches de la péremption sont utilisés en premier)
+- Entrée de stock (réception des produits)
+- Sortie de stock (vente / dispensation)
+- Alertes pour stock faible et produits proches de la péremption
+- Authentification des utilisateurs (Admin / Pharmacien / Gestionnaire de stock)ager)
 
 ## Tech Stack
 
@@ -63,7 +61,7 @@ DB_USER=root
 DB_PASS=
 ```
 
-### 4. "git clone https://github.com/votre-utilisateur/pharmafefo.git"
+### 4. "git clone https://github.com/kaoutarouissa/pharmafefo.git"
 
 ### 5. run projet
 
